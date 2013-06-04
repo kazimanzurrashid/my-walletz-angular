@@ -313,7 +313,6 @@
     </Content>
     <Content Include="Scripts\application\application.js" />
     <Content Include="Scripts\application\context.js" />
-    <Content Include="Scripts\application\controllers\application.js" />
     <Content Include="Scripts\application\controllers\flashmessage.js" />
     <Content Include="Scripts\application\controllers\forgotpassword.js" />
     <Content Include="Scripts\application\controllers\signin.js" />
