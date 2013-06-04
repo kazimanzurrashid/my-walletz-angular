@@ -3,7 +3,7 @@
     ['ngResource', 'ui.validate', 'ui.bootstrap.alert']);
 
 
-app.run(function(events) {
+app.run(function($location, events, context) {
 
     function showFlashSuccess(message) {
         events.trigger('flash:success', {
@@ -25,5 +25,16 @@ app.run(function(events) {
 
     events.on('signedIn', function () {
         showFlashSuccess('You are now signed in.');
+        context.userSignedIn({ load: true });
+    });
+
+    events.on('passwordChanged', function () {
+        showFlashSuccess('Your password is successfully changed.');
+    });
+
+    events.on('signedOut', function () {
+        showFlashSuccess('You are now signed out.');
+        context.userSignedOut();
+        $location.path('/');
     });
 });

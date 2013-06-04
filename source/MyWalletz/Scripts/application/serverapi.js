@@ -9,6 +9,9 @@
         Password: {
             forgot: function(model) {
                 return $http.post(urlPrefix + '/passwords/forgot', model);
+            },
+            change: function(model) {
+                return $http.post(urlPrefix + '/passwords/change', model);
             }
         }
     };

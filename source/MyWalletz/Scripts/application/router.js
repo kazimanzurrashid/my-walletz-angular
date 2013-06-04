@@ -8,6 +8,10 @@
             templateUrl: 'about.html',
             controller: 'Page'
         }).
+        when('/my-account', {
+            templateUrl: 'profile.html',
+            controller: 'Profile'
+        }).
         when('/passwords/reset', {
             templateUrl: 'password-reset.html',
             controller: 'ForgotPassword'

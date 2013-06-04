@@ -6112,11 +6112,6 @@ a.badge:focus {
   position: relative;
   overflow: hidden;
 }
-.modal-section + .modal-section {
-  border-top: 1px solid #eeeeee;
-  margin-top: 9px;
-  padding-top: 15px;
-}
 footer[role="contentinfo"] .row,
 footer[role="contentinfo"] .row-fluid {
   border-top: 1px solid #eeeeee;

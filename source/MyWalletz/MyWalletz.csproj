@@ -315,6 +315,7 @@
     <Content Include="Scripts\application\context.js" />
     <Content Include="Scripts\application\controllers\flashmessage.js" />
     <Content Include="Scripts\application\controllers\forgotpassword.js" />
+    <Content Include="Scripts\application\controllers\profile.js" />
     <Content Include="Scripts\application\controllers\signin.js" />
     <Content Include="Scripts\application\controllers\navigation.js" />
     <Content Include="Scripts\application\controllers\page.js" />
@@ -674,6 +675,7 @@
       <DependentUpon>jquery-2.0.1.js</DependentUpon>
     </Content>
     <Content Include="Scripts\ui.bootstrap.alert.js" />
+    <Content Include="Views\ClientViews\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
