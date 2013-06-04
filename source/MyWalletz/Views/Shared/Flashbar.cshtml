@@ -1,0 +1,48 @@
+@using MyWalletz.Infrastructure
+@{ var flashMessages = new FlashMessages(ViewContext.Controller.TempData); }
+@foreach (var flashMessage in flashMessages.Where(p =>
+  !string.IsNullOrWhiteSpace(p.Key) &&
+  !string.IsNullOrWhiteSpace(p.Value))) {
+  <div class="alert alert-@flashMessage.Key.ToLowerInvariant() fade in flash-bar">
+    <button type="button" class="close" data-dismiss="alert" title="close">&times;</button>
+    @{
+      var icon = string.Empty;
+      switch (flashMessage.Key.ToLowerInvariant())
+      {
+        case "success":
+          {
+            icon = "icon-ok-sign";
+            break;
+          }
+        case "error":
+          {
+            icon = "icon-warning-sign";
+            break;
+            
+          }
+        case "info":
+          {
+            icon = "icon-info-sign";
+            break;
+            
+          }
+      }
+    };
+    @if (!string.IsNullOrWhiteSpace(icon)) {
+      <i class="@icon"></i>
+    }
+    <span>@Html.Raw(flashMessage.Value)</span>
+  </div>
+}
+<script type="text/ng-template" id="template/alert/alert.html">
+  <div class='alert' ng-class='type && "alert-" + type'>
+    <button ng-show='closeable' type='button' class='close' ng-click='close()'>&times;</button>
+    <div ng-transclude></div>
+  </div>
+</script>
+<div ng-controller="FlashMessage">
+  <alert class="flash-bar" ng-repeat="alert in alerts" type="alert.type" close="alert.close()">
+    <i ng-class="alert.icon"></i> 
+    <span>{{alert.message}}</span>
+  </alert>
+</div>

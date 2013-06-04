@@ -1,0 +1,7 @@
+﻿<div class="alert alert-error" ng-show="modelErrors" ng-switch="modelErrors.length">
+  <strong>Error!</strong>
+  <span ng-switch-when="1">{{modelErrors[0]}}</span>
+  <ul ng-switch-default>
+    <li ng-repeat="error in modelErrors">{{error}}</li>
+  </ul>
+</div>

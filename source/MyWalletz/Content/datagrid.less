@@ -1,0 +1,22 @@
+@tableHeaderBackgroundAccentDark: darken(@tableBackgroundAccent, 6%);
+@tableBackgroundAccentDark: darken(@tableBackgroundAccent, 10%);
+
+.data-grid {
+  .data-grid-header {
+    background-color: @tableHeaderBackgroundAccentDark;
+
+    th:not(.data-grid-unsortable) {
+      cursor: pointer;
+      &:hover {
+        .gradientBar(@tableBackgroundAccent, @tableBackgroundAccentDark, @textColor, 'none');
+      }
+    }
+
+    .data-grid-sorted {
+      .gradientBar(@tableBackgroundAccent, @tableBackgroundAccentDark, @textColor, 'none');
+      i {
+        float: right;
+      }
+    }
+  }
+}

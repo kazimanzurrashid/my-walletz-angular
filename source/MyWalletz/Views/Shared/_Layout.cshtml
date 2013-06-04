@@ -1,0 +1,38 @@
+﻿@{ const string AppTitle = "My Walletz"; }
+
+@functions {
+  string PageTitle(string appTitle) {
+
+    var title = ViewBag.Title ?? string.Empty;
+
+    if (!string.IsNullOrWhiteSpace(title))
+    {
+      title += " - ";
+    }
+
+    title += appTitle;
+
+    return title;
+  }
+}
+<!DOCTYPE html>
+<html class="no-js" lang="en" ng-app="myWalletz">
+<head>
+  @Html.Partial("Head")
+  <title>@Html.Raw(PageTitle(AppTitle))</title>
+</head>
+<body>
+  @Html.Partial("LegacyIE")
+  @Html.Partial("Flashbar")
+  <header class="navbar">
+    <div class="navbar-inner">
+      <a href="~/" class="brand">@AppTitle</a>
+      @RenderSection("Navigation", false)
+    </div>
+  </header>
+  @RenderBody()
+  @Html.Partial("Footer")
+  @Html.Partial("Scripts")
+  @RenderSection("Scripts", false)
+</body>
+</html>

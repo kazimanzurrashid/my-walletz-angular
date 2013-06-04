@@ -1,0 +1,17 @@
+@using System.Web.Optimization
+@using MyWalletz.Helpers
+@model MyWalletz.Models.Home
+@section Navigation {
+  @Html.Partial("Navigation")
+}
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div id="container" class="span12" role="main">
+      <div class="page" ng-view></div>
+      @{ Html.IncludeClientViews(); }
+    </div>
+  </div>
+</div>
+@section Scripts {
+  @Scripts.Render("~/bundles/angular", "~/bundles/application")
+}

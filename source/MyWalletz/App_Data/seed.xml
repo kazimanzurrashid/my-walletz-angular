@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<data>
+  <categories>
+    <expenses>
+      <category title="Automobiles"/>
+      <category title="Clothing"/>
+      <category title="Education"/>
+      <category title="Food/Dining"/>
+      <category title="Health Care"/>
+      <category title="Household Bills"/>
+      <category title="Loans"/>
+      <category title="Taxes"/>
+      <category title="Transportation"/>
+      <category title="Travel"/>
+      <category title="Others"/>
+    </expenses>
+    <incomes>
+      <category title="Salary/Wages"/>
+      <category title="Investments"/>
+      <category title="Rental"/>
+      <category title="Other"/>
+    </incomes>
+  </categories>
+</data>

@@ -1,0 +1,95 @@
+﻿@using MyWalletz.Helpers
+<script type="text/ng-template" id="user-create.html">
+  <h2 class="page-header">Sign Up</h2>
+  <form name="form" ng-submit="submit()">
+    @Html.ClientView("ModelErrors")
+    <div
+      class="control-group"
+      ng-class="{ 'error': form.email.$invalid && form.email.$dirty }">
+      <label class="control-label" for="sign-up-email">Email</label>
+      <div class="controls">
+        <div class="input-prepend">
+          <span class="add-on"><i class="icon-envelope"></i></span>
+          <input
+            id="sign-up-email"
+            name="email"
+            type="email"
+            ng-model="user.email" 
+            ng-required="true"
+            autofocus />
+        </div>
+        <div
+          class="help-block"
+          ng-show="form.email.$invalid && form.email.$dirty">
+          <span ng-show="form.email.$error.required">Email is required.</span>
+          <span ng-show="form.email.$error.email">
+            Email must be in valid format.
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="control-group"
+      ng-class="{ 'error': form.password.$invalid && form.password.$dirty }">
+      <label class="control-label" for="sign-up-password">Password</label>
+      <div class="controls">
+        <div class="input-prepend">
+          <span class="add-on"><i class="icon-key"></i></span>
+          <input
+            id="sign-up-password"
+            name="password"
+            type="password"
+            ng-model="user.password"
+            ng-required="true"
+            ng-minlength="6" />
+        </div>
+        <div
+          class="help-block"
+          ng-show="form.password.$invalid && form.password.$dirty">
+          <span ng-show="form.password.$error.required">
+            Password is required.
+          </span>
+          <span ng-show="form.password.$error.minlength">
+            Password must be at least 6 characters.
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="control-group"
+      ng-class="{ 'error': form.confirmPassword.$invalid && form.confirmPassword.$dirty }">
+      <label class="control-label" for="sign-up-confirm-password">
+        Confirm password
+      </label>
+      <div class="controls">
+        <div class="input-prepend">
+          <span class="add-on"><i class="icon-key"></i></span>
+          <input
+            id="sign-up-confirm-password"
+            name="confirmPassword"
+            type="password"
+            ng-model="user.confirmPassword"
+            ui-validate="'$value==user.password'"
+            ui-validate-watch="'user.password'" />
+        </div>
+        <div
+          class="help-block"
+          ng-show="form.confirmPassword.$invalid && form.confirmPassword.$dirty">
+          <span ng-show="form.confirmPassword.$error.validator">
+            Confirm password must be same as password.
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button
+        type="submit"
+        ng-disabled="form.$invalid"
+        class="btn btn-primary">
+          Submit
+      </button>
+      or <a href="@Url.ClientUrl("sessions", "new")">sign in</a> 
+      if you already have an account.
+    </div>
+  </form>
+</script>

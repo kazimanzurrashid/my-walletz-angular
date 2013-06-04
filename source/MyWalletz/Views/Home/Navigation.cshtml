@@ -1,0 +1,48 @@
+﻿@using MyWalletz.Helpers
+<nav id="navigation" ng-controller="Navigation">
+  <ul class="nav">
+    <li class="divider-vertical"></li>
+    <li class="home-menu">
+      <a href="@Url.ClientUrl("/")">
+        <i class="icon-home"></i> Home
+      </a>
+    </li>
+    <li class="divider-vertical"></li>
+    <li class="dropdown transactions-menu">
+      <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+        <i class="icon-table"></i> Transactions <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+        <li ng-repeat="account in accounts">
+          <a ng-href="@Url.ClientUrl("accounts", "{{account.id}}", "transactions")">{{account.title}}</a>
+        </li>
+      </ul>
+    </li>
+    <li class="divider-vertical"></li>
+    <li class="accounts-menu">
+      <a href="@Url.ClientUrl("/accounts")">
+        <i class="icon-list"></i> Accounts
+      </a>
+    </li>
+    <li class="divider-vertical"></li>
+    <li class="categories-menu">
+      <a href="@Url.ClientUrl("/categories")">
+        <i class="icon-tags"></i> Categories
+      </a>
+    </li>
+    <li class="divider-vertical"></li>
+    <li class="about-menu">
+      <a href="@Url.ClientUrl("/about")">
+        <i class="icon-info-sign"></i> About
+      </a>
+    </li>
+  </ul>
+  <ul class="nav pull-right">
+    <li class="divider-vertical"></li>
+    <li>
+      <a href="javascript:;" ng-click="myAccount()">
+        <i class="icon-user"></i> My Account
+      </a>
+    </li>
+  </ul>
+</nav>
