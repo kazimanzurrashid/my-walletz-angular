@@ -3,7 +3,13 @@
     ['ngResource', 'ui.validate', 'ui.bootstrap.alert']);
 
 
-app.run(function($location, events, context) {
+app.run(function($rootScope, $location, events, context) {
+
+    $rootScope.$on('$routeChangeStart', function (e, next) {
+        if (next.secured && !context.isUserSignedIn()) {
+            $location.path('/sessions/new');
+        }
+    });
 
     function showFlashSuccess(message) {
         events.trigger('flash:success', {

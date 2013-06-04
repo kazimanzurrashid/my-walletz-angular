@@ -10,7 +10,13 @@
         }).
         when('/my-account', {
             templateUrl: 'profile.html',
-            controller: 'Profile'
+            controller: 'Profile',
+            secured: true
+        }).
+        when('/accounts', {
+            templateUrl: 'account-list.html',
+            controller: 'AccountList',
+            secured: true
         }).
         when('/passwords/reset', {
             templateUrl: 'password-reset.html',

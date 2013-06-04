@@ -313,6 +313,7 @@
     </Content>
     <Content Include="Scripts\application\application.js" />
     <Content Include="Scripts\application\context.js" />
+    <Content Include="Scripts\application\controllers\accountlist.js" />
     <Content Include="Scripts\application\controllers\flashmessage.js" />
     <Content Include="Scripts\application\controllers\forgotpassword.js" />
     <Content Include="Scripts\application\controllers\profile.js" />
@@ -676,6 +677,7 @@
     </Content>
     <Content Include="Scripts\ui.bootstrap.alert.js" />
     <Content Include="Views\ClientViews\Profile.cshtml" />
+    <Content Include="Views\ClientViews\AccountList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
