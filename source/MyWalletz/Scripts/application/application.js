@@ -9,6 +9,16 @@
 
 app.run(function($rootScope, $location, events, context) {
 
+    var options = window.options;
+
+    if (options) {
+        if (options.userSignedIn) {
+            context.userSignedIn();
+        }
+        context.categories = options.categories;
+        context.accounts = options.accounts;
+    }
+    
     $rootScope.$on('$routeChangeStart', function (e, next) {
         if (next.secured && !context.isUserSignedIn()) {
             $location.path('/sign-in');

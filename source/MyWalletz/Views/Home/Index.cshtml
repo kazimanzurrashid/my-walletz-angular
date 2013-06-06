@@ -13,5 +13,12 @@
   </div>
 </div>
 @section Scripts {
+  <script>
+    options = {
+      userSignedIn: @Html.Raw(@Request.IsAuthenticated.ToString().ToLowerInvariant()),
+      categories: @Html.Raw(Model.Accounts.ToJson()),
+      accounts: @Html.Raw(Model.Accounts.ToJson())
+    };
+  </script>
   @Scripts.Render("~/bundles/angular", "~/bundles/application")
 }
