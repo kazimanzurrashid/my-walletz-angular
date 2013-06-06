@@ -29,6 +29,7 @@
 
     $scope.signOut = function() {
         var session = new ServerAPI.Session;
+        session.id = Date.now();
         session
             .$delete(function () {
                 events.trigger('signedOut');

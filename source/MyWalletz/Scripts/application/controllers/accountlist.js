@@ -1,13 +1,13 @@
 ﻿app.controller('AccountList', function ($scope
-        , $location
         , $routeParams
+        , $location
         , context) {
 
     $scope.sortAttribute = $routeParams.sortAttribute || 'title';
     $scope.descending = $routeParams.sortOrder &&
         $routeParams.sortOrder === 'descending';
 
-    $scope.accounts = context.getAccounts();
+    $scope.accounts = context.accounts;
 
     $scope.sort = function(attribute) {
         var sortOrder = 'ascending';

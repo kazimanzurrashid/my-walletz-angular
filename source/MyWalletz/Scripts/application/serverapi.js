@@ -3,9 +3,9 @@
 
     return {
         User: $resource(urlPrefix + '/users'),
-        Session: $resource(urlPrefix + '/sessions'),
-        Category: $resource(urlPrefix + '/categories/:id'),
-        Account: $resource(urlPrefix + '/accounts/:id'),
+        Session: $resource(urlPrefix + '/sessions/:id', { id: '@id' }),
+        Category: $resource(urlPrefix + '/categories/:id', { id: '@id' }),
+        Account: $resource(urlPrefix + '/accounts/:id', { id: '@id' }),
         Password: {
             forgot: function(model) {
                 return $http.post(urlPrefix + '/passwords/forgot', model);

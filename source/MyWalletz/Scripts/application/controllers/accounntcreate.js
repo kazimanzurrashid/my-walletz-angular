@@ -2,6 +2,7 @@
         , $location
         , ServerAPI
         , Validation
+        , context
         , events) {
 
     $scope.account = new ServerAPI.Account;
@@ -12,6 +13,7 @@
 
         $scope.account
             .$save(function() {
+                context.accounts.push($scope.account);
                 events.trigger('flash:success', {
                     message: 'New account created.'
                 });

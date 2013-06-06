@@ -8,13 +8,24 @@
       </a>
     </li>
     <li class="divider-vertical"></li>
-    <li class="dropdown transactions-menu">
-      <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-        <i class="icon-table"></i> Transactions <b class="caret"></b>
+    <li class="transactions-menu" ng-class="{ dropdown: accounts.length }">
+      <a 
+        href="javascript:;"
+        data-toggle="dropdown"
+        ng-class="{ 'dropdown-toggle': accounts.length }">
+        <i class="icon-table"></i> 
+        Transactions 
+        <b class="caret" ng-show="accounts.length"></b>
       </a>
-      <ul class="dropdown-menu">
+      <ul class="dropdown-menu" ng-show="accounts.length">
         <li ng-repeat="account in accounts">
-          <a ng-href="@Url.ClientUrl("accounts", "{{account.id}}", "transactions")">{{account.title}}</a>
+          <a 
+            ng-href="@Url.ClientUrl(
+              "accounts",
+              "{{account.id}}",
+              "transactions")">
+            {{account.title}}
+          </a>
         </li>
       </ul>
     </li>
