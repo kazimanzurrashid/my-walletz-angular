@@ -1,22 +1,87 @@
 ﻿@using MyWalletz.Helpers
 <script type="text/ng-template" id="account-list.html">
-  <h2 class="page-header">Accounts</h2>
-  <div class="data-grid">
-    <table class="table table-striped table-bordered">
-      <thead>
-        <tr class="data-grid-header">
-          <th data-attribute="title">Title</th>
-          <th data-attribute="type">Type</th>
-          <th data-attribute="balance">Balance</th>
-          <th class="data-grid-unsortable"></th>
-        </tr>
-      </thead>
-      <tbody class="data-grid-content"></tbody>
-    </table>
-  </div>
-  <div class="form-actions">
-    <a href="@Url.ClientUrl("accounts", "new")" class="btn btn-primary">
-      <i class="icon-plus icon-white"></i> Create new
-    </a>
+  <div id="account-list-page">
+    <h2 class="page-header">Accounts</h2>
+    <div class="data-grid">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr class="data-grid-header">
+            <th
+              ng-click="sort('title')"
+              ng-class="{ 'data-grid-sorted': sortAttribute == 'title' }">
+              <span>Title</span>
+              <i
+                ng-show="sortAttribute == 'title'"
+                ng-class="{ 'icon-chevron-down' : descending, 'icon-chevron-up': !descending }"></i>
+            </th>
+            <th
+              ng-click="sort('type')"
+              ng-class="{ 'data-grid-sorted': sortAttribute == 'type' }">
+              <span>Type</span>
+              <i
+                ng-show="sortAttribute == 'type'"
+                ng-class="{ 'icon-chevron-down' : descending, 'icon-chevron-up': !descending }"></i>
+            </th>
+            <th
+              ng-click="sort('balance')"
+              ng-class="{ 'data-grid-sorted': sortAttribute == 'balance' }">
+              <span>Balance</span>
+              <i
+                ng-show="sortAttribute == 'balance'"
+                ng-class="{ 'icon-chevron-down' : descending, 'icon-chevron-up': !descending }"></i>
+            </th>
+            <th class="data-grid-unsortable"></th>
+          </tr>
+        </thead>
+        <tbody class="data-grid-content">
+          <tr ng-repeat="account in accounts | orderBy:sortAttribute:descending">
+            <td>{{account.title}}</td>
+            <td>{{account.type}}</td>
+            <td>{{account.balance | currency:account.currency}}</td>
+            <td>
+              <div class="btn-group">
+                <a
+                  href="javascript:;"
+                  class="btn dropdown-toggle"
+                  data-toggle="dropdown">
+                  Action <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li>
+                    <a 
+                      href="@Url.ClientUrl("accounts", "{{account.id}}", "edit")">
+                      <i class="icon-edit"></i> Edit
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      ng-href="javascript:;"
+                      ng-click="destroy(account)">
+                      <i class="icon-trash"></i> Delete
+                    </a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a
+                      href="@Url.ClientUrl(
+                              "accounts",
+                              "{{account.id}}",
+                              "transactions",
+                              "new")">
+                      <i class="icon-plus"></i> New transaction
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="form-actions">
+      <a href="@Url.ClientUrl("accounts", "new")" class="btn btn-primary">
+        <i class="icon-plus icon-white"></i> Create new
+      </a>
+    </div>
   </div>
 </script>

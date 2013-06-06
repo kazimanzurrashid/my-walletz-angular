@@ -42,10 +42,6 @@
 #container {
   overflow: hidden;
   min-height: 380px;
-  .page {
-    position: relative;
-    overflow: hidden;
-  }
 }
 
 footer[role="contentinfo"] {
@@ -110,4 +106,13 @@ footer[role="contentinfo"] {
       }
     }
   }
+}
+
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none;
 }

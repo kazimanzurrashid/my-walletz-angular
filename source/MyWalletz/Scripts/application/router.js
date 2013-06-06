@@ -13,20 +13,35 @@
             controller: 'Profile',
             secured: true
         }).
+        when('/accounts/new', {
+            templateUrl: 'account-create.html',
+            controller: 'AccountCreate',
+            secured: true
+        }).
+        when('/accounts/:sortAttribute/:sortOrder', {
+            templateUrl: 'account-list.html',
+            controller: 'AccountList',
+            secured: true
+        }).
+        when('/accounts/:sortAttribute', {
+            templateUrl: 'account-list.html',
+            controller: 'AccountList',
+            secured: true
+        }).
         when('/accounts', {
             templateUrl: 'account-list.html',
             controller: 'AccountList',
             secured: true
         }).
-        when('/passwords/reset', {
-            templateUrl: 'password-reset.html',
+        when('/forgot-password', {
+            templateUrl: 'forgot-password.html',
             controller: 'ForgotPassword'
         }).
-        when('/sessions/new', {
+        when('/sign-in', {
             templateUrl: 'session-create.html',
             controller: 'SignIn'
         }).
-        when('/users/new', {
+        when('/sign-up', {
             templateUrl: 'user-create.html',
             controller: 'SignUp'
         }).

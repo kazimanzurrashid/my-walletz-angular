@@ -1,4 +1,9 @@
-﻿app.controller('SignIn', function($scope, $location, ServerAPI, Validation, events) {
+﻿app.controller('SignIn', function ($scope
+        , $location
+        , ServerAPI
+        , Validation
+        , events) {
+
     $scope.session = new ServerAPI.Session;
 
     $scope.submit = function() {

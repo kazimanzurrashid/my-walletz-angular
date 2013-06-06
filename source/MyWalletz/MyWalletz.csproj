@@ -313,6 +313,7 @@
     </Content>
     <Content Include="Scripts\application\application.js" />
     <Content Include="Scripts\application\context.js" />
+    <Content Include="Scripts\application\controllers\accounntcreate.js" />
     <Content Include="Scripts\application\controllers\accountlist.js" />
     <Content Include="Scripts\application\controllers\flashmessage.js" />
     <Content Include="Scripts\application\controllers\forgotpassword.js" />
@@ -629,6 +630,7 @@
     </Content>
     <Content Include="Scripts\less.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\ui.bootstrap.transition.js" />
     <Content Include="Scripts\ui.validate.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -678,6 +680,8 @@
     <Content Include="Scripts\ui.bootstrap.alert.js" />
     <Content Include="Views\ClientViews\Profile.cshtml" />
     <Content Include="Views\ClientViews\AccountList.cshtml" />
+    <Content Include="Scripts\ui.bootstrap.dialog.js" />
+    <Content Include="Views\ClientViews\AccountCreate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

@@ -4,8 +4,7 @@
     $scope.myAccount = function () {
         var path = context.isUserSignedIn() ?
             '/my-account' :
-            '/sessions/new';
-
+            '/sign-in';
         $location.path(path);
     };
 });

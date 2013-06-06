@@ -1,0 +1,118 @@
+﻿@using MyWalletz
+@using MyWalletz.Helpers
+@using MyWalletz.Models
+<script type="text/ng-template" id="account-create.html">
+  <div id="account-create-page">
+    <h2 class="page-header">New account</h2>
+    <form name="form" ng-submit="submit()">
+      @Html.ClientView("ModelErrors")
+      <div
+        class="control-group"
+        ng-class="{ 'error': form.title.$invalid && form.title.$dirty }">
+        <label for="new-account-title">Title</label>
+        <div class="controls">
+          <input
+            type="text"
+            id="new-account-title"
+            name="title"
+            ng-model="account.title"
+            ng-required="true"
+            autofocus />
+        </div>
+        <div
+          class="help-block"
+          ng-show="form.title.$invalid && form.title.$dirty">
+          <span ng-show="form.title.$error.required">Title is required.</span>
+        </div>
+      </div>
+      <div class="control-group">
+        <label for="new-account-notes">Notes</label>
+        <div class="controls">
+          <textarea
+            id="new-account-notes"
+            name="notes"
+            ng-model="account.notes"></textarea>
+        </div>
+      </div>
+      <div
+        class="control-group"
+        ng-class="{ 'error': form.type.$invalid && form.type.$dirty }">
+        <label for="new-account-type">Type</label>
+        <div class="controls">
+          <select
+            id="new-account-type"
+            name="type"
+            ng-model="account.type"
+            ng-required="true">
+            <option value="">[select]</option>
+            @foreach (var item in this.SelectListItems<AccountType>()) {
+              <option value="@item.Value">@item.Text</option>
+            }
+          </select>
+        </div>
+        <div
+          class="help-block"
+          ng-show="form.type.$invalid && form.type.$dirty">
+          <span ng-show="form.type.$error.required">Type is required.</span>
+        </div>
+      </div>
+      <div
+        class="control-group"
+        ng-class="{ 'error': form.balance.$invalid && form.balance.$dirty }">
+        <label for="new-account-balance">Balance</label>
+        <div class="controls">
+          <input 
+            type="number"
+            id="new-account-balance"
+            name="balance"
+            class="input-small money"
+            value="0.00"
+            min="0"
+            step="any"
+            ng-model="account.balance"
+            ng-required="true"/>
+        </div>
+        <div
+          class="help-block"
+          ng-show="form.balance.$invalid && form.balance.$dirty">
+          <span ng-show="form.balance.$error.required">
+            Balance is required.
+          </span>
+          <span ng-show="form.balance.$error.min">
+            Balance cannot be negative.
+          </span>
+        </div>
+      </div>
+      <div
+        class="control-group"
+        ng-class="{ 'error': form.currency.$invalid && form.currency.$dirty }">
+        <label for="new-account-currency">Currency</label>
+        <div class="controls">
+          <select
+            id="new-account-currency"
+            name="currency"
+            ng-model="account.currency"
+            ng-required="true">
+            <option value="">[select]</option>
+            @foreach (var item in new CurrencyList().AsSelectListItems()) {
+              <option value="@item.Value">@item.Text</option>
+            }
+          </select>
+        </div>
+        <div
+          class="help-block"
+          ng-show="form.currency.$invalid && form.currency.$dirty">
+          <span ng-show="form.currency.$error.required">Currency is required.</span>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button
+          type="submit"
+          ng-disabled="form.$invalid" class="btn btn-primary">
+          Save
+        </button>
+        or <a class="btn" href="@Url.ClientUrl("/accounts")">Cancel</a>
+      </div>
+    </form>
+  </div>
+</script>

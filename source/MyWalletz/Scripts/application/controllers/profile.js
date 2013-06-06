@@ -1,4 +1,9 @@
-﻿app.controller('Profile', function ($scope, $location, ServerAPI, Validation, events) {
+﻿app.controller('Profile', function ($scope
+        , $location
+        , ServerAPI
+        , Validation
+        , events) {
+
     $scope.password = {
         oldPassword: null,
         newPassword: null,

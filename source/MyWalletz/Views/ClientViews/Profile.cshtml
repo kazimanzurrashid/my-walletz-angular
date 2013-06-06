@@ -1,93 +1,95 @@
 ﻿@using MyWalletz.Helpers
 <script type="text/ng-template" id="profile.html">
-  <h2 class="page-header">My Account</h2>
-  <form name="form" ng-submit="changePassword()">
-    @Html.ClientView("ModelErrors")
-    <div
-      class="control-group"
-      ng-class="{ 'error': form.oldPassword.$invalid && form.oldPassword.$dirty }">
-      <label class="control-label" for="change-password-old">Old password</label>
-      <div class="controls">
-        <div class="input-prepend">
-          <span class="add-on"><i class="icon-key"></i></span>
-          <input
-            id="change-password-old"
-            name="oldPassword"
-            type="password"
-            ng-model="password.oldPassword"
-            ng-required="true" 
-            autofocus />
-        </div>
-        <div
-          class="help-block"
-          ng-show="form.oldPassword.$invalid && form.oldPassword.$dirty">
-          <span ng-show="form.oldPassword.$error.required">
-            Old password is required.
-          </span>
-        </div>
-      </div>
-    </div>
-    <div
-      class="control-group"
-      ng-class="{ 'error': form.newPassword.$invalid && form.newPassword.$dirty }">
-      <label class="control-label" for="change-password-new">New password</label>
-      <div class="controls">
-        <div class="input-prepend">
-          <span class="add-on"><i class="icon-key"></i></span>
-          <input
-            id="change-password-new"
-            name="newPassword"
-            type="password"
-            ng-model="password.newPassword"
-            ng-required="true"
-            ng-minlength="6" />
-        </div>
-        <div
-          class="help-block"
-          ng-show="form.newPassword.$invalid && form.newPassword.$dirty">
-          <span ng-show="form.newPassword.$error.required">
-            New password is required.
-          </span>
-          <span ng-show="form.newPassword.$error.minlength">
-            New password must be at least 6 characters.
-          </span>
+  <div id="profile-page">
+    <h2 class="page-header">My Account</h2>
+    <form name="form" ng-submit="changePassword()">
+      @Html.ClientView("ModelErrors")
+      <div
+        class="control-group"
+        ng-class="{ 'error': form.oldPassword.$invalid && form.oldPassword.$dirty }">
+        <label class="control-label" for="change-password-old">Old password</label>
+        <div class="controls">
+          <div class="input-prepend">
+            <span class="add-on"><i class="icon-key"></i></span>
+            <input
+              id="change-password-old"
+              name="oldPassword"
+              type="password"
+              ng-model="password.oldPassword"
+              ng-required="true" 
+              autofocus />
+          </div>
+          <div
+            class="help-block"
+            ng-show="form.oldPassword.$invalid && form.oldPassword.$dirty">
+            <span ng-show="form.oldPassword.$error.required">
+              Old password is required.
+            </span>
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      class="control-group"
-      ng-class="{ 'error': form.confirmPassword.$invalid && form.confirmPassword.$dirty }">
-      <label class="control-label" for="change-password-confirm">
-        Confirm password
-      </label>
-      <div class="controls">
-        <div class="input-prepend">
-          <span class="add-on"><i class="icon-key"></i></span>
-          <input
-            id="change-password-confirm"
-            name="confirmPassword"
-            type="password"
-            ng-model="password.confirmPassword"
-            ui-validate="'$value==password.newPassword'"
-            ui-validate-watch="'password.newPassword'" />
-        </div>
-        <div
-          class="help-block"
-          ng-show="form.confirmPassword.$invalid && form.confirmPassword.$dirty">
-          <span ng-show="form.confirmPassword.$error.validator">
-            Confirm password must be same as new password.
-          </span>
+      <div
+        class="control-group"
+        ng-class="{ 'error': form.newPassword.$invalid && form.newPassword.$dirty }">
+        <label class="control-label" for="change-password-new">New password</label>
+        <div class="controls">
+          <div class="input-prepend">
+            <span class="add-on"><i class="icon-key"></i></span>
+            <input
+              id="change-password-new"
+              name="newPassword"
+              type="password"
+              ng-model="password.newPassword"
+              ng-required="true"
+              ng-minlength="6" />
+          </div>
+          <div
+            class="help-block"
+            ng-show="form.newPassword.$invalid && form.newPassword.$dirty">
+            <span ng-show="form.newPassword.$error.required">
+              New password is required.
+            </span>
+            <span ng-show="form.newPassword.$error.minlength">
+              New password must be at least 6 characters.
+            </span>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="form-actions">
-      <button
-        type="submit"
-        ng-disabled="form.$invalid"
-        class="btn btn-primary">
-          Change password
-      </button>
-      or <a href="javascript:;" ng-click="signOut()">sign out?</a>
-    </div>
-  </form>
+      <div
+        class="control-group"
+        ng-class="{ 'error': form.confirmPassword.$invalid && form.confirmPassword.$dirty }">
+        <label class="control-label" for="change-password-confirm">
+          Confirm password
+        </label>
+        <div class="controls">
+          <div class="input-prepend">
+            <span class="add-on"><i class="icon-key"></i></span>
+            <input
+              id="change-password-confirm"
+              name="confirmPassword"
+              type="password"
+              ng-model="password.confirmPassword"
+              ui-validate="'$value==password.newPassword'"
+              ui-validate-watch="'password.newPassword'" />
+          </div>
+          <div
+            class="help-block"
+            ng-show="form.confirmPassword.$invalid && form.confirmPassword.$dirty">
+            <span ng-show="form.confirmPassword.$error.validator">
+              Confirm password must be same as new password.
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button
+          type="submit"
+          ng-disabled="form.$invalid"
+          class="btn btn-primary">
+            Change password
+        </button>
+        or <a ng-href="javascript:;" ng-click="signOut()">sign out?</a>
+      </div>
+    </form>
+  </div>
 </script>

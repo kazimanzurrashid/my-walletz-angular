@@ -49,8 +49,7 @@ namespace MyWalletz.Infrastructure
             bundles.Add(new ScriptBundle("~/bundles/angular")
                 .Include("~/Scripts/angular.js")
                 .Include("~/Scripts/angular-resource.js")
-                .Include("~/Scripts/ui.validate.js")
-                .Include("~/Scripts/ui.bootstrap.alert.js"));
+                .Include("~/Scripts/ui.*"));
 
             bundles.Add(new ScriptBundle("~/bundles/application")
                 .IncludeDirectory("~/Scripts/application", "*.js", true));

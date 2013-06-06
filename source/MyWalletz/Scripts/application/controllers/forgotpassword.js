@@ -1,4 +1,8 @@
-﻿app.controller('ForgotPassword', function ($scope, $location, ServerAPI, events) {
+﻿app.controller('ForgotPassword', function ($scope
+        , $location
+        , ServerAPI
+        , events) {
+
     $scope.password = {
         email: null
     };

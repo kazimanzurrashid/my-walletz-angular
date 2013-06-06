@@ -1,13 +1,17 @@
 ﻿var app = angular.module(
     'myWalletz',
-    ['ngResource', 'ui.validate', 'ui.bootstrap.alert']);
-
+    [
+        'ngResource',
+        'ui.validate',
+        'ui.bootstrap.alert',
+        'ui.bootstrap.dialog'
+    ]);
 
 app.run(function($rootScope, $location, events, context) {
 
     $rootScope.$on('$routeChangeStart', function (e, next) {
         if (next.secured && !context.isUserSignedIn()) {
-            $location.path('/sessions/new');
+            $location.path('/sign-in');
         }
     });
 

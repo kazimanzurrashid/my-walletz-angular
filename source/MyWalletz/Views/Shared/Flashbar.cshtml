@@ -40,7 +40,7 @@
     <div ng-transclude></div>
   </div>
 </script>
-<div ng-controller="FlashMessage">
+<div ng-controller="FlashMessage" ng-cloak>
   <alert class="flash-bar" ng-repeat="alert in alerts" type="alert.type" close="alert.close()">
     <i ng-class="alert.icon"></i> 
     <span>{{alert.message}}</span>

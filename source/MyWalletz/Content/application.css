@@ -6108,10 +6108,6 @@ a.badge:focus {
   overflow: hidden;
   min-height: 380px;
 }
-#container .page {
-  position: relative;
-  overflow: hidden;
-}
 footer[role="contentinfo"] .row,
 footer[role="contentinfo"] .row-fluid {
   border-top: 1px solid #eeeeee;
@@ -6152,4 +6148,12 @@ footer[role="contentinfo"] .row-fluid p {
 }
 #category-list-page .tab-pane li:hover a {
   display: inline-block;
+}
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none;
 }
