@@ -12,7 +12,7 @@
         $scope.account.createdAt = new Date;
 
         $scope.account
-            .$save(function() {
+            .$create(function() {
                 context.accounts.push($scope.account);
                 events.trigger('flash:success', {
                     message: 'New account created.'

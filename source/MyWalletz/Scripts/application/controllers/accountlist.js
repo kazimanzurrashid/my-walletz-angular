@@ -1,7 +1,9 @@
 ﻿app.controller('AccountList', function ($scope
         , $routeParams
         , $location
-        , context) {
+        , Validation
+        , context
+        , events) {
 
     $scope.sortAttribute = $routeParams.sortAttribute || 'title';
     $scope.descending = $routeParams.sortOrder &&
@@ -20,6 +22,27 @@
     };
 
     $scope.destroy = function(account) {
-        console.dir(account);
+        var title = account.title;
+        var index = context.accounts.indexOf(account);
+        
+        account.$delete(function() {
+            context.accounts.splice(index, 1);
+            events.trigger('flash:success', {
+                message: '\"' + title + '\" account deleted.'
+            });
+        }, function (response) {
+            var message = 'An unexpected error has occurred while deleting \"' +
+                title + '\" account.';
+            
+            if (Validation.hasModelErrors(response)) {
+                var modelErrors = Validation.getModelErrors(response);
+                if (modelErrors) {
+                    message = modelErrors[0];
+                }
+            }
+            events.trigger('flash:error', {
+                message: message
+            });
+        });
     };
 });

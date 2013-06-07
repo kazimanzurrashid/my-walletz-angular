@@ -18,6 +18,11 @@
             controller: 'AccountCreate',
             secured: true
         }).
+        when('/accounts/:id/edit', {
+            templateUrl: 'account-edit.html',
+            controller: 'AccountEdit',
+            secured: true
+        }).
         when('/accounts/:sortAttribute/:sortOrder', {
             templateUrl: 'account-list.html',
             controller: 'AccountList',
@@ -45,8 +50,11 @@
             templateUrl: 'user-create.html',
             controller: 'SignUp'
         }).
-        otherwise({
+        when('/404', {
             templateUrl: 'not-found.html',
             controller: 'Page'
+        }).
+        otherwise({
+            redirectTo: '/404'
         });
 });

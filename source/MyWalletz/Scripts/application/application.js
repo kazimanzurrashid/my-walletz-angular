@@ -8,15 +8,14 @@
     ]);
 
 app.run(function($rootScope, $location, events, context) {
-
     var options = window.options;
 
     if (options) {
         if (options.userSignedIn) {
             context.userSignedIn();
         }
-        context.categories = options.categories;
-        context.accounts = options.accounts;
+        context.loadCategories(options.categories);
+        context.loadAccounts(options.accounts);
     }
     
     $rootScope.$on('$routeChangeStart', function (e, next) {
@@ -24,12 +23,6 @@ app.run(function($rootScope, $location, events, context) {
             $location.path('/sign-in');
         }
     });
-
-    function showFlashSuccess(message) {
-        events.trigger('flash:success', {
-            message: message
-        });
-    }
 
     events.on('signedUp', function () {
         showFlashSuccess('Thank you for signing up, an email with a ' +
@@ -57,4 +50,10 @@ app.run(function($rootScope, $location, events, context) {
         context.userSignedOut();
         $location.path('/');
     });
+
+    function showFlashSuccess(message) {
+        events.trigger('flash:success', {
+            message: message
+        });
+    }
 });

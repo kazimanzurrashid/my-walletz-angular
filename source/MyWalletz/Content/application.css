@@ -6104,9 +6104,16 @@ a.badge:focus {
 .flash-bar {
   margin-bottom: 0;
 }
+#navigation a {
+  outline: none;
+}
 #container {
   overflow: hidden;
   min-height: 380px;
+}
+#container .page {
+  position: relative;
+  overflow: hidden;
 }
 footer[role="contentinfo"] .row,
 footer[role="contentinfo"] .row-fluid {

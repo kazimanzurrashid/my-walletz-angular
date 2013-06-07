@@ -1,0 +1,78 @@
+﻿@using MyWalletz
+@using MyWalletz.Helpers
+<script type="text/ng-template" id="account-edit.html">
+  <div id="account-edit-page">
+    <h2 class="page-header">Edit account</h2>
+    <form name="form" ng-submit="submit()">
+      <div
+        class="control-group"
+        ng-class="{ 'error': form.title.$invalid && form.title.$dirty }">
+        <label for="edit-account-title">Title</label>
+        <div class="controls">
+          <input
+            type="text"
+            id="edit-account-title"
+            name="title"
+            ng-model="account.title"
+            ng-required="true"
+            autofocus />
+        </div>
+        <div
+          class="help-block"
+          ng-show="form.title.$invalid && form.title.$dirty">
+          <span ng-show="form.title.$error.required">Title is required.</span>
+        </div>
+      </div>
+      <div class="control-group">
+        <label for="edit-account-notes">Notes</label>
+        <div class="controls">
+          <textarea
+            id="edit-account-notes"
+            name="notes"
+            ng-model="account.notes"></textarea>
+        </div>
+      </div>
+      <div
+        class="control-group"
+        ng-class="{ 'error': form.type.$invalid && form.type.$dirty }">
+        <label for="edit-account-type">Type</label>
+        <div class="controls">
+          <select
+            id="edit-account-type"
+            name="type"
+            ng-model="account.type"
+            ng-required="true">
+            <option value="">[select]</option>
+            @foreach (var item in this.SelectListItems<AccountType>()) {
+              <option value="@item.Value">@item.Text</option>
+            }
+          </select>
+        </div>
+        <div
+          class="help-block"
+          ng-show="form.type.$invalid && form.type.$dirty">
+          <span ng-show="form.type.$error.required">Type is required.</span>
+        </div>
+      </div>
+      <div class="control-group">
+        <label>Balance</label>
+        <div class="controls">
+          <div class="input-prepend ">
+            <span class="add-on">{{account.currency}}</span>
+            <span class="input-small uneditable-input money">
+              {{account.balance | currency }}
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button
+          type="submit"
+          ng-disabled="form.$invalid" class="btn btn-primary">
+          Save
+        </button>
+        <a class="btn" href="@Url.ClientUrl("/accounts")">Cancel</a>
+      </div>
+    </form>
+  </div>
+</script>

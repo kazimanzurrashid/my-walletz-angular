@@ -8,6 +8,9 @@
         $location.path(path);
     };
     
+    events.on('signedIn', sync);
+    events.on('signedOut', sync);
+
     function sync() {
         $timeout(function() {
             $scope.accounts = context.accounts;
@@ -16,7 +19,4 @@
             }
         }, 0);
     }
-
-    events.on('signedIn', sync);
-    events.on('signedOut', sync);
 });

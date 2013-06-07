@@ -18,7 +18,7 @@
         <b class="caret" ng-show="accounts.length"></b>
       </a>
       <ul class="dropdown-menu" ng-show="accounts.length">
-        <li ng-repeat="account in accounts | orderBy:title">
+        <li ng-repeat="account in accounts | orderBy:'title'">
           <a 
             ng-href="@Url.ClientUrl(
               "accounts",
