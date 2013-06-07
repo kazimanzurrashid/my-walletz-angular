@@ -316,6 +316,7 @@
     <Content Include="Scripts\application\controllers\accounntcreate.js" />
     <Content Include="Scripts\application\controllers\accountlist.js" />
     <Content Include="Scripts\application\controllers\accounntedit.js" />
+    <Content Include="Scripts\application\controllers\categorylist.js" />
     <Content Include="Scripts\application\controllers\flashmessage.js" />
     <Content Include="Scripts\application\controllers\forgotpassword.js" />
     <Content Include="Scripts\application\controllers\profile.js" />
@@ -684,6 +685,7 @@
     <Content Include="Scripts\ui.bootstrap.dialog.js" />
     <Content Include="Views\ClientViews\AccountCreate.cshtml" />
     <Content Include="Views\ClientViews\AccountEdit.cshtml" />
+    <Content Include="Views\ClientViews\CategoryList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

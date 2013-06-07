@@ -1,0 +1,27 @@
+﻿@helper TabPane(string id, bool active = false) {
+  <div id="@id" class="tab-pane @(active ? "active" : string.Empty)">
+    <ol>
+      
+    </ol>
+    <ul>
+      <li>
+        <input type="text" placeholder="New category..." title="Type your category title and hit enter" />
+      </li>
+    </ul>
+  </div>
+}
+<script type="text/ng-template" id="category-list.html">
+  <div id="category-list-page">
+    <h2 class="page-header">Categories</h2>
+    <div class="tabbable">
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#expense-list" data-toggle="tab">Expense</a></li>
+        <li><a href="#income-list" data-toggle="tab">Income</a></li>
+      </ul>
+      <div class="tab-content">
+        @TabPane("expense-list", true)
+        @TabPane("income-list")
+      </div>
+    </div>
+  </div>
+</script>

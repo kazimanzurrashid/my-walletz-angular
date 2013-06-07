@@ -7,8 +7,8 @@
         'ui.bootstrap.dialog'
     ]);
 
-app.run(function($rootScope, $location, events, context) {
-    var options = window.options;
+app.run(function($rootScope, $location, $window, events, context) {
+    var options = $window.options;
 
     if (options) {
         if (options.userSignedIn) {

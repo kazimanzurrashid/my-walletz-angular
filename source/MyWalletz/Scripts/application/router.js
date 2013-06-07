@@ -13,6 +13,11 @@
             controller: 'Profile',
             secured: true
         }).
+        when('/categories', {
+            templateUrl: 'category-list.html',
+            controller: 'CategoryList',
+            secured: true
+        }).
         when('/accounts/new', {
             templateUrl: 'account-create.html',
             controller: 'AccountCreate',
