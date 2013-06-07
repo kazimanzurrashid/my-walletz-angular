@@ -52,6 +52,7 @@ namespace MyWalletz.Infrastructure
                 .Include("~/Scripts/ui.*"));
 
             bundles.Add(new ScriptBundle("~/bundles/application")
+                .Include("~/Scripts/underscore.js")
                 .IncludeDirectory("~/Scripts/application", "*.js", true));
         }
 

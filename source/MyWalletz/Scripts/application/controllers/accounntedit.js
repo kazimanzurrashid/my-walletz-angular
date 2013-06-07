@@ -2,29 +2,28 @@
         , $routeParams
         , $location
         , ServerAPI
+        , Resource
         , Validation
         , context
         , events) {
 
     var id = parseInt($routeParams.id, 10);
-
-    $scope.account = null;
-
-    angular.forEach(context.accounts, function(value) {
-        if (!$scope.account && value.id == id) {
-            $scope.account = value;
-        }
+    var account = _.find(context.accounts, function(x) {
+         return x.id === id;
     });
 
-    if (!$scope.account) {
+    if (!account) {
         $location.path('/404');
     }
 
-    var title = $scope.account.title;
+    var title = account.title;
+    $scope.account = Resource.copy(account);
 
-    $scope.submit = function() {
+    $scope.submit = function () {
         $scope.modelErrors = void(0);
-        $scope.account
+        Resource.merge($scope.account, account);
+
+        account
             .$save(function() {
                 events.trigger('flash:success', {
                     message: '\"' + title + '\" account updated.'
