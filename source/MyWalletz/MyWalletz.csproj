@@ -324,10 +324,12 @@
     <Content Include="Scripts\application\controllers\navigation.js" />
     <Content Include="Scripts\application\controllers\page.js" />
     <Content Include="Scripts\application\controllers\signup.js" />
+    <Content Include="Scripts\application\directives\forms.js" />
     <Content Include="Scripts\application\validation.js" />
     <Content Include="Scripts\application\events.js" />
     <Content Include="Scripts\application\router.js" />
     <Content Include="Scripts\application\serverapi.js" />
+    <Content Include="Scripts\application\model.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js">
       <DependentUpon>bootstrap.js</DependentUpon>

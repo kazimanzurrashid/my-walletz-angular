@@ -2,11 +2,9 @@
 <script type="text/ng-template" id="user-create.html">
   <div id="sign-up-page">
     <h2 class="page-header">Sign Up</h2>
-    <form name="form" ng-submit="submit()">
+    <form name="form" ng-submit="submit()" novalidate>
       @Html.ClientView("ModelErrors")
-      <div
-        class="control-group"
-        ng-class="{ 'error': form.email.$invalid && form.email.$dirty }">
+      <field-group for="email">
         <label class="control-label" for="sign-up-email">Email</label>
         <div class="controls">
           <div class="input-prepend">
@@ -19,19 +17,13 @@
               ng-required="true"
               autofocus />
           </div>
-          <div
-            class="help-block"
-            ng-show="form.email.$invalid && form.email.$dirty">
-            <span ng-show="form.email.$error.required">Email is required.</span>
-            <span ng-show="form.email.$error.email">
-              Email must be in valid format.
-            </span>
-          </div>
         </div>
-      </div>
-      <div
-        class="control-group"
-        ng-class="{ 'error': form.password.$invalid && form.password.$dirty }">
+        <validation-message
+          for="email"
+          required="Email is required."
+          email="Email must be in valid format." />
+      </field-group>
+      <field-group for="password">
         <label class="control-label" for="sign-up-password">Password</label>
         <div class="controls">
           <div class="input-prepend">
@@ -44,21 +36,13 @@
               ng-required="true"
               ng-minlength="6" />
           </div>
-          <div
-            class="help-block"
-            ng-show="form.password.$invalid && form.password.$dirty">
-            <span ng-show="form.password.$error.required">
-              Password is required.
-            </span>
-            <span ng-show="form.password.$error.minlength">
-              Password must be at least 6 characters.
-            </span>
-          </div>
         </div>
-      </div>
-      <div
-        class="control-group"
-        ng-class="{ 'error': form.confirmPassword.$invalid && form.confirmPassword.$dirty }">
+        <validation-message
+          for="password"
+          required="Password is required."
+          minlength="Password must be at least 6 characters." />
+      </field-group>
+      <field-group for="confirmPassword">
         <label class="control-label" for="sign-up-confirm-password">
           Confirm password
         </label>
@@ -73,14 +57,10 @@
               ui-validate="'$value==user.password'"
               ui-validate-watch="'user.password'" />
           </div>
-          <div
-            class="help-block"
-            ng-show="form.confirmPassword.$invalid && form.confirmPassword.$dirty">
-            <span ng-show="form.confirmPassword.$error.validator">
-              Confirm password must be same as password.
-            </span>
-          </div>
         </div>
+        <validation-message
+          for="confirmPassword"
+          validator="Confirm password must be same as password." />
       </div>
       <div class="form-actions">
         <button

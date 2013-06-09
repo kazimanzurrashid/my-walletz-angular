@@ -2,11 +2,9 @@
 <script type="text/ng-template" id="profile.html">
   <div id="profile-page">
     <h2 class="page-header">My Account</h2>
-    <form name="form" ng-submit="changePassword()">
+    <form name="form" ng-submit="changePassword()" novalidate>
       @Html.ClientView("ModelErrors")
-      <div
-        class="control-group"
-        ng-class="{ 'error': form.oldPassword.$invalid && form.oldPassword.$dirty }">
+      <field-group for="oldPassword">
         <label class="control-label" for="change-password-old">Old password</label>
         <div class="controls">
           <div class="input-prepend">
@@ -19,18 +17,12 @@
               ng-required="true" 
               autofocus />
           </div>
-          <div
-            class="help-block"
-            ng-show="form.oldPassword.$invalid && form.oldPassword.$dirty">
-            <span ng-show="form.oldPassword.$error.required">
-              Old password is required.
-            </span>
-          </div>
         </div>
-      </div>
-      <div
-        class="control-group"
-        ng-class="{ 'error': form.newPassword.$invalid && form.newPassword.$dirty }">
+        <validation-message
+          for="oldPassword"
+          required="Old password is required." />
+      </field-group>
+      <field-group for="newPassword">
         <label class="control-label" for="change-password-new">New password</label>
         <div class="controls">
           <div class="input-prepend">
@@ -43,21 +35,13 @@
               ng-required="true"
               ng-minlength="6" />
           </div>
-          <div
-            class="help-block"
-            ng-show="form.newPassword.$invalid && form.newPassword.$dirty">
-            <span ng-show="form.newPassword.$error.required">
-              New password is required.
-            </span>
-            <span ng-show="form.newPassword.$error.minlength">
-              New password must be at least 6 characters.
-            </span>
-          </div>
         </div>
-      </div>
-      <div
-        class="control-group"
-        ng-class="{ 'error': form.confirmPassword.$invalid && form.confirmPassword.$dirty }">
+        <validation-message
+          for="newPassword"
+          required="New password is required."
+          minlength="New password must be at least 6 characters." />
+      </field-group>
+      <field-group for="confirmPassword">
         <label class="control-label" for="change-password-confirm">
           Confirm password
         </label>
@@ -72,15 +56,11 @@
               ui-validate="'$value==password.newPassword'"
               ui-validate-watch="'password.newPassword'" />
           </div>
-          <div
-            class="help-block"
-            ng-show="form.confirmPassword.$invalid && form.confirmPassword.$dirty">
-            <span ng-show="form.confirmPassword.$error.validator">
-              Confirm password must be same as new password.
-            </span>
-          </div>
         </div>
-      </div>
+        <validation-message
+          for="confirmPassword"
+          validator="Confirm password must be same as new password." />
+      </field-group>
       <div class="form-actions">
         <button
           type="submit"

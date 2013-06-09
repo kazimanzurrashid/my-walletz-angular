@@ -4,11 +4,9 @@
 <script type="text/ng-template" id="account-create.html">
   <div id="account-create-page">
     <h2 class="page-header">New account</h2>
-    <form name="form" ng-submit="submit()">
+    <form name="form" ng-submit="submit()" novalidate>
       @Html.ClientView("ModelErrors")
-      <div
-        class="control-group"
-        ng-class="{ 'error': form.title.$invalid && form.title.$dirty }">
+      <field-group for="title">
         <label for="new-account-title">Title</label>
         <div class="controls">
           <input
@@ -19,12 +17,10 @@
             ng-required="true"
             autofocus />
         </div>
-        <div
-          class="help-block"
-          ng-show="form.title.$invalid && form.title.$dirty">
-          <span ng-show="form.title.$error.required">Title is required.</span>
-        </div>
-      </div>
+        <validation-message
+          for="title"
+          required="Title is required." />
+      </field-group>
       <div class="control-group">
         <label for="new-account-notes">Notes</label>
         <div class="controls">
@@ -34,9 +30,7 @@
             ng-model="account.notes"></textarea>
         </div>
       </div>
-      <div
-        class="control-group"
-        ng-class="{ 'error': form.type.$invalid && form.type.$dirty }">
+      <field-group for="type">
         <label for="new-account-type">Type</label>
         <div class="controls">
           <select
@@ -50,15 +44,11 @@
             }
           </select>
         </div>
-        <div
-          class="help-block"
-          ng-show="form.type.$invalid && form.type.$dirty">
-          <span ng-show="form.type.$error.required">Type is required.</span>
-        </div>
-      </div>
-      <div
-        class="control-group"
-        ng-class="{ 'error': form.balance.$invalid && form.balance.$dirty }">
+        <validation-message
+          for="type"
+          required="Type is required." />
+      </field-group>
+      <field-group for="balance">
         <label for="new-account-balance">Balance</label>
         <div class="controls">
           <input 
@@ -72,20 +62,12 @@
             ng-model="account.balance"
             ng-required="true"/>
         </div>
-        <div
-          class="help-block"
-          ng-show="form.balance.$invalid && form.balance.$dirty">
-          <span ng-show="form.balance.$error.required">
-            Balance is required.
-          </span>
-          <span ng-show="form.balance.$error.min">
-            Balance cannot be negative.
-          </span>
-        </div>
-      </div>
-      <div
-        class="control-group"
-        ng-class="{ 'error': form.currency.$invalid && form.currency.$dirty }">
+        <validation-message
+          for="balance"
+          required="Balance is required."
+          min="Balance cannot be negative." />
+      </field-group>
+      <field-group for="currency">
         <label for="new-account-currency">Currency</label>
         <div class="controls">
           <select
@@ -99,12 +81,10 @@
             }
           </select>
         </div>
-        <div
-          class="help-block"
-          ng-show="form.currency.$invalid && form.currency.$dirty">
-          <span ng-show="form.currency.$error.required">Currency is required.</span>
-        </div>
-      </div>
+        <validation-message
+          for="currency"
+          required="Currency is required." />
+      </field-group>
       <div class="form-actions">
         <button
           type="submit"
