@@ -69,3 +69,19 @@ app.directive('validationMessage', function () {
         }
     };
 });
+
+app.directive('submitButton', function() {
+    return {
+        restrict: 'E',
+        require: '^form',
+        transclude: true,
+        replace: true,
+        template: '<button type="submit" class="btn btn-primary" ng-transclude></button>',
+        link: function ($scope, el, attrs, ctrl) {
+            var watchExpression = ctrl.$name + '.$invalid';
+            $scope.$watch(watchExpression, function(value) {
+                attrs.$set('disabled', !!value);
+            });
+        }
+    };
+});

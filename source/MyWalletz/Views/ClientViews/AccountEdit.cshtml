@@ -50,7 +50,7 @@
       <div class="control-group">
         <label>Balance</label>
         <div class="controls">
-          <div class="input-prepend ">
+          <div class="input-prepend">
             <span class="add-on">{{account.currency}}</span>
             <span class="input-small uneditable-input money">
               {{account.balance | currency }}
@@ -59,11 +59,7 @@
         </div>
       </div>
       <div class="form-actions">
-        <button
-          type="submit"
-          ng-disabled="form.$invalid" class="btn btn-primary">
-          Save
-        </button>
+        <submit-button>Save</submit-button>
         <a class="btn" href="@Url.ClientUrl("/accounts")">Cancel</a>
       </div>
     </form>

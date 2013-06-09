@@ -62,12 +62,7 @@
           validator="Confirm password must be same as new password." />
       </field-group>
       <div class="form-actions">
-        <button
-          type="submit"
-          ng-disabled="form.$invalid"
-          class="btn btn-primary">
-            Change password
-        </button>
+        <submit-button>Submit</submit-button>
         or <a href="javascript:;" ng-click="signOut()">sign out?</a>
       </div>
     </form>
