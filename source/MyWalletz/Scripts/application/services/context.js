@@ -22,7 +22,8 @@
 
     this.userSignedOut = function() {
         userSignedIn = false;
-        this.categories = this.accounts = [];
+        this.categories = [];
+        this.accounts = [];
     };
 
     this.loadCategories = function(payloads) {

@@ -334,9 +334,6 @@
     <Content Include="Scripts\bootstrap.min.js">
       <DependentUpon>bootstrap.js</DependentUpon>
     </Content>
-    <None Include="Scripts\jquery-2.0.1.intellisense.js">
-      <DependentUpon>jquery-2.0.1.js</DependentUpon>
-    </None>
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
     <Content Include="Scripts\i18n\angular-locale_af-za.js" />
     <Content Include="Scripts\i18n\angular-locale_af.js" />
@@ -624,9 +621,12 @@
     <Content Include="Scripts\i18n\angular-locale_zh.js" />
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
-    <Content Include="Scripts\jquery-2.0.1.js" />
-    <Content Include="Scripts\jquery-2.0.1.min.js">
-      <DependentUpon>jquery-2.0.1.js</DependentUpon>
+    <None Include="Scripts\jquery-2.0.2.intellisense.js">
+      <DependentUpon>jquery-2.0.2.js</DependentUpon>
+    </None>
+    <Content Include="Scripts\jquery-2.0.2.js" />
+    <Content Include="Scripts\jquery-2.0.2.min.js">
+      <DependentUpon>jquery-2.0.2.js</DependentUpon>
     </Content>
     <Content Include="Scripts\json2.js" />
     <Content Include="Scripts\json2.min.js">
@@ -682,9 +682,6 @@
     <Content Include="Views\ClientViews\Home.cshtml" />
     <Content Include="Views\ClientViews\About.cshtml" />
     <Content Include="Views\ClientViews\_ModelErrors.cshtml" />
-    <Content Include="Scripts\jquery-2.0.1.min.map">
-      <DependentUpon>jquery-2.0.1.js</DependentUpon>
-    </Content>
     <Content Include="Scripts\ui.bootstrap.alert.js" />
     <Content Include="Views\ClientViews\Profile.cshtml" />
     <Content Include="Views\ClientViews\AccountList.cshtml" />
@@ -693,6 +690,9 @@
     <Content Include="Views\ClientViews\AccountEdit.cshtml" />
     <Content Include="Views\ClientViews\CategoryList.cshtml" />
     <Content Include="Views\ClientViews\ConfirmDialog.cshtml" />
+    <Content Include="Scripts\jquery-2.0.2.min.map">
+      <DependentUpon>jquery-2.0.2.js</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -745,7 +745,7 @@
     </VisualStudio>
   </ProjectExtensions>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
-  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.7\tools\Microsoft.Bcl.Build.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.7\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.7\tools\Microsoft.Bcl.Build.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

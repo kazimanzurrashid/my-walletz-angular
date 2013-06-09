@@ -7,7 +7,7 @@
             '/sign-in';
         $location.path(path);
     };
-    
+
     events.on('signedIn', sync);
     events.on('signedOut', sync);
 
